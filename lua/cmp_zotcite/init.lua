@@ -20,7 +20,7 @@ end
 source.is_available = function()
     for _, v in pairs(options.filetypes) do
         if vim.bo.filetype == v then
-            return true
+            return vim.b.cmp_zotcite_enable
         end
     end
     return false
@@ -153,6 +153,10 @@ source.complete = function(_, request, callback)
         end
     end
     callback({ items = resp })
+end
+
+source.toggle = function()
+
 end
 
 return source
